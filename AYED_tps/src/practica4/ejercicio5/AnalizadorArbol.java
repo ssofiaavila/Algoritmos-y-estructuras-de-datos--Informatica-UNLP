@@ -12,7 +12,7 @@ public class AnalizadorArbol {
 		ArbolGeneral<AreaEmpresa> aux;
 		cola.encolar(arbol);
 		cola.encolar(null);
-		int total=0, max= -1, nivel=0, cantidad=0;
+		int total=0, max= -1,  cantidad=0;
 		while (!cola.esVacia()) {
 			aux=cola.desencolar();
 			if (aux !=null) {
@@ -27,12 +27,11 @@ public class AnalizadorArbol {
 				}
 			}
 			else
-				if (!cola.esVacia()) {
-					cola.encolar(null);
-					nivel++;
-					total= total/cantidad;
+				if (!cola.esVacia()) { // o sea tengo mas elementos
+					cola.encolar(null); //paso a otro nivel
+					total= total/cantidad; 
 					if (total>max) max=total;
-					cantidad=0;
+					cantidad=0;//inicializo los auxiliares
 					total=0;
 				}
 		}
@@ -40,3 +39,4 @@ public class AnalizadorArbol {
 	}
 }
 
+//los null sirven para separar los elementos
