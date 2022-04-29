@@ -1,5 +1,6 @@
 package tp04.ejercicio1;
 
+import practica2.ejercicio3.ColaGenerica;
 import tp02.ejercicio2.ListaEnlazadaGenerica;
 import tp02.ejercicio2.ListaGenerica;
 
@@ -72,23 +73,80 @@ public class ArbolGeneral<T> {
 	public ListaEnlazadaGenerica<T> preOrden() {
 		return null;
 	}
-	private void preOrden(ListaGenerica<T>lis) {
-		
-	}
+	
 	
 	public Integer altura() {
-		// Falta implementar..
-		return 0;
+		int altura= -1;
+		if (this.esHoja())	return 0;
+		else {
+			if (this.tieneHijos()) {
+				ListaGenerica<ArbolGeneral<T>> hijos= this.getHijos();
+				hijos.comenzar();
+				while (!hijos.fin()) {
+					altura= Math.max(altura, hijos.proximo().altura());
+				}
+			}
+		}
+		return altura;
+			
 	}
 
 	public Integer nivel(T dato) {
-		// falta implementar
-		return -1;
+		ColaGenerica<ArbolGeneral<T>> cola= new ColaGenerica<ArbolGeneral<T>>();
+		ArbolGeneral<T> aux;
+		cola.encolar(this);
+		cola.encolar(null);
+		int nivel=0;
+		while (!cola.esVacia()) {
+			aux= cola.desencolar();
+			if (aux !=null) {
+				if (aux.getDato() ==dato) {
+					return nivel;
+				}
+				if (aux.tieneHijos()) {
+					ListaGenerica<ArbolGeneral<T>> hijos= aux.getHijos();
+					hijos.comenzar();
+					while (!hijos.fin()) {
+						cola.encolar(hijos.proximo());
+					}
+				}
+			}
+			else 
+				if (!cola.esVacia()) {
+					cola.encolar(null);
+					nivel++;
+				}
+		}
+		return nivel;
 	}
 
 	public Integer ancho() {
-		// Falta implementar..
-		return 0;
+		ColaGenerica<ArbolGeneral<T>> cola= new ColaGenerica<ArbolGeneral<T>>();
+		ArbolGeneral<T> aux;
+		cola.encolar(this);
+		cola.encolar(null);
+		int cantidad=0, max=-1, nivel=0;
+		while (!cola.esVacia()) {
+			aux= cola.desencolar();
+			if (aux!= null) {
+				cantidad++;
+				if (aux.tieneHijos()) {
+					ListaGenerica<ArbolGeneral<T>> hijos= aux.getHijos();
+					hijos.comenzar();
+					while (!hijos.fin()) {
+						cola.encolar(hijos.proximo());
+					}
+				}
+			}
+			else
+				if (!cola.esVacia()) {
+					cola.encolar(null);
+					nivel++;
+					if (cantidad > max) max=cantidad;
+					cantidad=0;
+				}
+		}
+		return max;
 	}
 
 }
