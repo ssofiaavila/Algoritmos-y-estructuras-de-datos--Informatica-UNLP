@@ -1,21 +1,25 @@
 package practica3.ejercicio4;
-import practica3.ejercicio2.ArbolBinario;
+
+import practica3.ejercicio1.ArbolBinario;
+
 public class RedBinariaLlena {
-	private ArbolBinario <Integer> arbol;
+	
+
+	private ArbolBinario<Integer> red= new ArbolBinario<Integer>();
 	
 	
-	public int getMax(ArbolBinario<Integer> ab) {
-		int max1= ab.getDato();
-		int max2= ab.getDato();
-		
-		if (!ab.esHoja()) {
-			max1 += getMax(ab.getHijoIzquierdo());
-			max2+= getMax(ab.getHijoDerecho());
+	public Integer retardoReenvio() {
+		return this.calcularRetardoReenvio(this.red);
+	}
+	
+	private Integer calcularRetardoReenvio(ArbolBinario<Integer> ab) {
+		int max1=0,max2=0;
+		if (!ab.esVacio()) {
+			max1+= calcularRetardoReenvio(ab.getHijoDerecho());
+			max2+= calcularRetardoReenvio(ab.getHijoIzquierdo());
 		}
 		return Math.max(max1, max2);
 	}
 	
-	public int retardoReenvio() {
-		return this.getMax(arbol);
-	}
+
 }
