@@ -37,7 +37,13 @@ public class Impresora {
 	}
 		System.out.println(); 
 	}
-	public void metodoC(int a,int b) {
-		/// como carajo lo hago
+	public void metodoC(int i,int j) {
+		if (i <= j) {
+			System.out.println(i);
+			i=i+1;
+			imprimirSinEstructura(i,j);
+		}
+		else
+			System.out.println();
 	}
 }
