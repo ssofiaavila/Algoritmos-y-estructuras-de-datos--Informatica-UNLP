@@ -1,53 +1,43 @@
 package practica4.ejercicio7;
 
-import ListasGenericas.tp02.ejercicio2.ListaGenerica;
-import practica2.ejercicio3.ColaGenerica;
+import tp02.ejercicio2.ListaGenerica;
+import tp02.ejercicio3.ColaGenerica;
 import tp04.ejercicio1.ArbolGeneral;
 
-public class RedDeAguaPotable <T> {
-	ArbolGeneral<T> abb;
+public class RedDeAguaPotable {
+	private ArbolGeneral<Bifurcacion> red;
 	
-	public RedDeAguaPotable(ArbolGeneral<T> abb) {
-		this.abb=abb;
+	public RedDeAguaPotable(ArbolGeneral<Bifurcacion>red) {
+		this.red=red;
 	}
 	
 	public double minimoCaudal(double caudal) {
-		ColaGenerica<ArbolGeneral<T>> cola= new ColaGenerica<ArbolGeneral<T>>();
-		ColaGenerica<Double> colaCaudal = new ColaGenerica<Double>();
-		ArbolGeneral<T> aux;
-		double auxCaudal;
-		int nivel=0;
-		double min= 99999.9;
-		cola.encolar(this.abb);
-		colaCaudal.encolar(0.0);
-		System.out.println("Nivel:"+nivel);
-		auxCaudal= colaCaudal.desencolar();
+		int cant=0;
+		double min=caudal;
+		ColaGenerica<ArbolGeneral<Bifurcacion>> cola= new ColaGenerica<ArbolGeneral<Bifurcacion>>();
+		ArbolGeneral<Bifurcacion> aux;
+		cola.encolar(red);
+		cola.encolar(null);
 		while (!cola.esVacia()) {
-			int cantidad=0;
-			aux=cola.desencolar();
-			auxCaudal= colaCaudal.desencolar();
-			if (aux!=null) {
-				if (auxCaudal < min) {
-					min= auxCaudal;
-				}
+			aux= cola.desencolar();
+			if (aux != null) {
+				cant= cant+1;
 				if (aux.tieneHijos()) {
-					tp02.ejercicio2.ListaGenerica<ArbolGeneral<T>> hijos= aux.getHijos();
-					hijos.comenzar();
+					ListaGenerica<ArbolGeneral<Bifurcacion>> hijos= aux.getHijos();
 					while (!hijos.fin()) {
-						cantidad++;
 						cola.encolar(hijos.proximo());
 					}
-					auxCaudal= auxCaudal/ cantidad;
 				}
-				else
-					auxCaudal=0.0;
-				for (int i=0; i<cantidad;i++) {
-					colaCaudal.encolar(auxCaudal);
-				}
-				System.out.println("Nodo "+ aux.getDato()+ "caudal: "+ auxCaudal);
 			}
+			else
+				if (!cola.esVacia()) {
+					min= min/cant;
+					cant=0;
+					cola.encolar(null);
+				}
 		}
-		System.out.println(" ");
 		return min;
+		
+		
 	}
 }

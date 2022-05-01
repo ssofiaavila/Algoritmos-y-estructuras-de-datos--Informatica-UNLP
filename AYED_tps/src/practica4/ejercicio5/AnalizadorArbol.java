@@ -1,25 +1,25 @@
 package practica4.ejercicio5;
 
-import ListasGenericas.tp02.ejercicio2.ListaEnlazadaGenerica;
-import ListasGenericas.tp02.ejercicio2.ListaGenerica;
-import practica2.ejercicio3.ColaGenerica;
+import tp02.ejercicio2.ListaGenerica;
+import tp02.ejercicio3.ColaGenerica;
 import tp04.ejercicio1.ArbolGeneral;
 
 public class AnalizadorArbol {
 	
-	public int devolverMaximoPromedio(ArbolGeneral<AreaEmpresa> arbol) {
+	
+	public int devovlerMaximoPromedio(ArbolGeneral<AreaEmpresa> arbol) {
+		int total=0,cant=0,max=0;
 		ColaGenerica<ArbolGeneral<AreaEmpresa>> cola= new ColaGenerica<ArbolGeneral<AreaEmpresa>>();
 		ArbolGeneral<AreaEmpresa> aux;
 		cola.encolar(arbol);
 		cola.encolar(null);
-		int total=0, max= -1,  cantidad=0;
 		while (!cola.esVacia()) {
 			aux=cola.desencolar();
-			if (aux !=null) {
-				total=total+ aux.getDato().getTransmision();
-				cantidad++;
+			if (aux != null) {
+				total= total+ aux.getDato().getTransmision();
+				cant++;
 				if (aux.tieneHijos()) {
-					tp02.ejercicio2.ListaGenerica<ArbolGeneral<AreaEmpresa>> hijos=aux.getHijos();
+					ListaGenerica<ArbolGeneral<AreaEmpresa>> hijos= aux.getHijos();
 					hijos.comenzar();
 					while (!hijos.fin()) {
 						cola.encolar(hijos.proximo());
@@ -27,16 +27,14 @@ public class AnalizadorArbol {
 				}
 			}
 			else
-				if (!cola.esVacia()) { // o sea tengo mas elementos
-					cola.encolar(null); //paso a otro nivel
-					total= total/cantidad; 
-					if (total>max) max=total;
-					cantidad=0;//inicializo los auxiliares
+				if(!cola.esVacia()) {
+					cola.encolar(null);
+					total=total/cant;
+					if (total >max) max=total;
+					cant=0;
 					total=0;
 				}
 		}
 		return max;
 	}
 }
-
-//los null sirven para separar los elementos
