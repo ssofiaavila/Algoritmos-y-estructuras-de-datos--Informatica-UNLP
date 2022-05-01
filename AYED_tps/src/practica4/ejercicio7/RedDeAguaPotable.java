@@ -31,7 +31,7 @@ public class RedDeAguaPotable {
 			}
 			else
 				if (!cola.esVacia()) {
-					min= min/cant;
+					min= min/cant; ///ver
 					cant=0;
 					cola.encolar(null);
 				}
