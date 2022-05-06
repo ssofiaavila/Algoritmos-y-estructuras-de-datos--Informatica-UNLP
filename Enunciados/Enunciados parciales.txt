@@ -1,20 +1,20 @@
-1) Dado un árbol general, encontrar todos los cmainos desde la raíz a una hoja, tales que la cantidad de nodos
+-1) Dado un árbol general, encontrar todos los cmainos desde la raíz a una hoja, tales que la cantidad de nodos
 en el camino sea un número par.
 Escribir el siguiente método dentro de la clase Parcial
 // public ?? caminosPares(ArbolGeneral<Character> arbol)
 
-2) Implemente en la clase Parcial el método sumarImapresPosOrdenMayorA que recibe
+-2) Implemente en la clase Parcial el método sumarImparesPosOrdenMayorA que recibe
 un árbol binario de enteros positivos y un numero entero. Este método suma todos
 los números impares del árbol que son mayores al parametro realizandolo en un recorrido posOrden
 public Integer sumaImparesaPosOrdenMayorA(ArbolBinario <Integer> ab, int limite)
 
-3) Implemente en la clase Parcial que tiene como variable de instancia un ArbolGeneral<Integer> el método
+-3) Implemente en la clase Parcial que tiene como variable de instancia un ArbolGeneral<Integer> el método
 ListaGenerica<Integer> resolver() que devuelve en la lista la suma de los datos contenidos en los nodos del árbol que tienen un número impar hijos.
 Realice un recorrido postOrden
 
-4) Devolver el camino a la hoja más lejana, si hubiese más de un camino de igual longitud maxima, devovler el primero que encontremos
+-4) Devolver el camino a la hoja más lejana, si hubiese más de un camino de igual longitud maxima, devovler el primero que encontremos
 
-5) Implemente en la clase Parcial, el método con la siguiente firma:
+-5) Implemente en la clase Parcial, el método con la siguiente firma:
 
 resolver (ArbolBinario<Integer> arbol)
 que devuelva una lista con los valores de los nodos que tengan el mismo numero
