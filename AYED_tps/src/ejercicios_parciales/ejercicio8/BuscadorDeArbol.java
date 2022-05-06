@@ -10,34 +10,32 @@ public class BuscadorDeArbol {
 	public BuscadorDeArbol(ArbolGeneral<Integer> ab){
 	this.arbol=ab;
 	}
-	public Integer buscarMayorEnPostOrden() {
-		int max= -1;
-		return buscarMayorEnPostOrden(this.arbol,max);
+	public ArbolGeneral<Integer> getArbol(){
+		return this.arbol;
 	}
-	private int buscarMayorEnPostOrden(ArbolGeneral<Integer> ab, int max) {
-		tp02.ejercicio2.ListaGenerica<ArbolGeneral<Integer>> hijos;
-		int aux=-1;
-		if (!ab.esVacio()) {
-			if (ab.tieneHijos()) {
-				hijos= ab.getHijos();
-				hijos.comenzar();
-				max= buscarMayorEnPostOrden(hijos.proximo(),max);
-			}
-			if (ab.getDato() > max) {
-				aux=ab.getDato();
-			}
-			if (ab.tieneHijos()) {
-				hijos=ab.getHijos();
-				while (!hijos.fin()){
-					max=buscarMayorEnPostOrden(hijos.proximo(),max);
+	
+	
+	public Integer buscarMayorEnPostOrden() {
+		int max=-1; 		
+		return this.buscarMayorEnPostOrden(arbol,max);
+	}
+	private Integer buscarMayorEnPostOrden(ArbolGeneral<Integer> ab, int max) {
+		int aux;
+		if (!arbol.esVacio()) { //es vacio si no tiene dato y tampoco hijos
+			if (arbol.tieneHijos()) {
+				tp02.ejercicio2.ListaGenerica<ArbolGeneral<Integer>> hijos= ab.getHijos(); 
+				hijos.comenzar();  
+				while (!hijos.fin()) { 
+					aux= buscarMayorEnPostOrden(hijos.proximo(),max);
+					if (aux > max) max= aux;
 				}
-				
-				
 			}
-		if (aux> max) return aux;
-		
+			if (ab.getDato() > max ) {
+				return ab.getDato();
+			}
+			
 		}
 		return max;
-	}
+	}	
 	
 }

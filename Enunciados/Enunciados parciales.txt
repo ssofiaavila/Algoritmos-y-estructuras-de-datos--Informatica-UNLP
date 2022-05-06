@@ -36,5 +36,9 @@ hasta llevar a una hoja
 8) Sea un árbol general de enteros, realizar un recorrido postorden para retornar el elemento mayor
 Dada una clase Java denominada BuscadorDeArbol que tiene como variable de instancia
 un ArbolGeneral<Integer> denominado arbol, implemente en dicha clase el método
-public Integer buscarMayorEnPostOrden()a
+public Integer buscarMayorEnPostOrden()
+
+9) Escribir un método frontera de un árbol general de numeros enteros.
+La frontera resulta ser las hojas
+
 
