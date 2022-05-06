@@ -4,52 +4,35 @@ import tp04.ejercicio1.ArbolGeneral;
 
 public class TestEjercicio8 {
 	public static void main(String[] args) {
-		ArbolGeneral<Integer> a = new ArbolGeneral<Integer>(0);
-		ArbolGeneral<Integer> b = new ArbolGeneral<Integer>(50);
-		ArbolGeneral<Integer> c = new ArbolGeneral<Integer>(10);
+ArbolGeneral<Integer> g = new ArbolGeneral<Integer> (1);
 		
-		ArbolGeneral<Integer> e = new ArbolGeneral<Integer>(50);
-		ArbolGeneral<Integer> f = new ArbolGeneral<Integer>(30);
-		ArbolGeneral<Integer> g = new ArbolGeneral<Integer>(5);
-		ArbolGeneral<Integer> h = new ArbolGeneral<Integer>(50);
+		ArbolGeneral<Integer> e = new ArbolGeneral<Integer> (3);
+		ArbolGeneral<Integer> f = new ArbolGeneral<Integer> (2);
+		ArbolGeneral<Integer> j = new ArbolGeneral<Integer> (5);
 		
-		ArbolGeneral<Integer> i = new ArbolGeneral<Integer>(12);
-		ArbolGeneral<Integer> j = new ArbolGeneral<Integer>(50);
-		ArbolGeneral<Integer> k = new ArbolGeneral<Integer>(5);
-		ArbolGeneral<Integer> l = new ArbolGeneral<Integer>(10);
-		ArbolGeneral<Integer> m = new ArbolGeneral<Integer>(35);
-		ArbolGeneral<Integer> n = new ArbolGeneral<Integer>(50);
-		ArbolGeneral<Integer> o = new ArbolGeneral<Integer>(22);
-		ArbolGeneral<Integer> p = new ArbolGeneral<Integer>(10);
-		ArbolGeneral<Integer> q = new ArbolGeneral<Integer>(80);
-		ArbolGeneral<Integer> r = new ArbolGeneral<Integer>(20);
-		ArbolGeneral<Integer> s = new ArbolGeneral<Integer>(40);
+		ArbolGeneral<Integer> a = new ArbolGeneral<Integer> (7);
+		ArbolGeneral<Integer> b = new ArbolGeneral<Integer> (500);
+		ArbolGeneral<Integer> c = new ArbolGeneral<Integer> (6);
 		
-		a.agregarHijo(b);
-		a.agregarHijo(i);
-		a.agregarHijo(p);
-		a.agregarHijo(s);
+		ArbolGeneral<Integer> d = new ArbolGeneral<Integer> (10);
 		
-		b.agregarHijo(c);
+		ArbolGeneral<Integer> h = new ArbolGeneral<Integer> (6);
+		ArbolGeneral<Integer> i = new ArbolGeneral<Integer> (100);
 		
-		c.agregarHijo(e);
-		e.agregarHijo(f);
-		f.agregarHijo(g);
-		g.agregarHijo(h);
+		g.agregarHijo(e);
+		g.agregarHijo(f);
+		g.agregarHijo(j);
 		
-		i.agregarHijo(j);
-		j.agregarHijo(k);
+		e.agregarHijo(a);
+		e.agregarHijo(b);
+		e.agregarHijo(c);
 		
-		k.agregarHijo(l);
-		k.agregarHijo(m);
+		f.agregarHijo(d);
 		
-		m.agregarHijo(n);
-		n.agregarHijo(o);
+		j.agregarHijo(h);
+		j.agregarHijo(i);
 		
-		p.agregarHijo(q);
-		q.agregarHijo(r);
-		
-		BuscadorDeArbol test = new BuscadorDeArbol(a);
+		BuscadorDeArbol test = new BuscadorDeArbol(g);
 		System.out.println(test.buscarMayorEnPostOrden());
 	}
 

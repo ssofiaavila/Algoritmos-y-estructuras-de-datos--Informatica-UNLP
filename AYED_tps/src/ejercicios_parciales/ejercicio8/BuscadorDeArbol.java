@@ -11,26 +11,33 @@ public class BuscadorDeArbol {
 	this.arbol=ab;
 	}
 	public Integer buscarMayorEnPostOrden() {
-		Integer max=-1;
-		this.buscarMayorEnPostOrden(this.arbol,max);
+		int max= -1;
+		return buscarMayorEnPostOrden(this.arbol,max);
+	}
+	private int buscarMayorEnPostOrden(ArbolGeneral<Integer> ab, int max) {
+		tp02.ejercicio2.ListaGenerica<ArbolGeneral<Integer>> hijos;
+		int aux=-1;
+		if (!ab.esVacio()) {
+			if (ab.tieneHijos()) {
+				hijos= ab.getHijos();
+				hijos.comenzar();
+				max= buscarMayorEnPostOrden(hijos.proximo(),max);
+			}
+			if (ab.getDato() > max) {
+				aux=ab.getDato();
+			}
+			if (ab.tieneHijos()) {
+				hijos=ab.getHijos();
+				while (!hijos.fin()){
+					max=buscarMayorEnPostOrden(hijos.proximo(),max);
+				}
+				
+				
+			}
+		if (aux> max) return aux;
+		
+		}
 		return max;
 	}
-	private void buscarMayorEnPostOrden(ArbolGeneral<Integer> abb, Integer max) {
-		if (!abb.esVacio()) {
-			if (abb.tieneHijos()) {
-				tp02.ejercicio2.ListaGenerica<ArbolGeneral<Integer>> hijos= abb.getHijos();
-				hijos.comenzar();
-				buscarMayorEnPostOrden(hijos.proximo(),max);
-				
-			
-			if (abb.getDato() > max) {
-				max= abb.getDato();
-			}
-			while (!hijos.fin()) {
-				
-			}
-			}
-		}
-		
-	}
+	
 }
