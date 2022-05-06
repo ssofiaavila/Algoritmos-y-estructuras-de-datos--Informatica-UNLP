@@ -1,0 +1,34 @@
+1) Dado un árbol general, encontrar todos los cmainos desde la raíz a una hoja, tales que la cantidad de nodos
+en el camino sea un número par.
+Escribir el siguiente método dentro de la clase Parcial
+// public ?? caminosPares(ArbolGeneral<Character> arbol)
+
+2) Implemente en la clase Parcial el método sumarImapresPosOrdenMayorA que recibe
+un árbol binario de enteros positivos y un numero entero. Este método suma todos
+los números impares del árbol que son mayores al parametro realizandolo en un recorrido posOrden
+public Integer sumaImparesaPosOrdenMayorA(ArbolBinario <Integer> ab, int limite)
+
+3) Implemente en la clase Parcial que tiene como variable de instancia un ArbolGeneral<Integer> el método
+ListaGenerica<Integer> resolver() que devuelve en la lista la suma de los datos contenidos en los nodos del árbol que tienen un número impar hijos.
+Realice un recorrido postOrden
+
+4) Devolver el camino a la hoja más lejana, si hubiese más de un camino de igual longitud maxima, devovler el primero que encontremos
+
+5) Implemente en la clase Parcial, el método con la siguiente firma:
+
+resolver (ArbolBinario<Integer> arbol)
+que devuelva una lista con los valores de los nodos que tengan el mismo numero
+de descendientes por su subárbol izquierdo como por su subárbol derecho
+
+6) Implemente en la clase Parcial el siguiente metodo:
+colorearArbol(ArbolBinario<String> arbol, Integer maxColor)
+El método recibe un árbol incoloro y lo colorea segun el siguiente criterio
+La raiz se colorea en "Negro" y luego los siguientes niveles se van intercalando
+entre el "Rojo"y el "Negro" con la salvedad de que no puede haber un nivel 
+con mas de maxColor nodos "Rojos" o "Negro" con lo cual si un nivel supera
+ese valor se deberá colorear en "Verde" 
+
+7) Sea un árbol general en donde cada nodo tiene un valor numérico. Usted debe devolver
+el camino determinado por el valor que tiene cada nodo. Es decir, el camino comienza en el nodo raíz, luego
+debe seguir por el hijo que se encuentra en la posición indicada en el valor del nodo raíz y así debe seguir
+hasta llevar a una hoja
