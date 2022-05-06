@@ -7,9 +7,9 @@ import tp04.ejercicio1.ArbolGeneral;
 public class RedDeAguaPotable {
 	private ArbolGeneral<Bifurcacion> red;
 	
-	private ArbolGeneral<String> red;
 	
-	public RedDeAguaPotable(ArbolGeneral<String> red) {
+	
+	public RedDeAguaPotable(ArbolGeneral<Bifurcacion> red) {
 		this.red=red;
 	}
 	
@@ -18,12 +18,12 @@ public class RedDeAguaPotable {
 		return minimoCaudal(red,caudal,min);
 	}
 	
-	private double minimoCaudal(ArbolGeneral<String> red, double caudal, double min) {
+	private double minimoCaudal(ArbolGeneral<Bifurcacion> red, double caudal, double min) {
 		if(red.esHoja())
 			if(caudal < min)
 				return caudal;
 		
-		ListaGenerica<ArbolGeneral<String>> hijos = red.getHijos();
+		ListaGenerica<ArbolGeneral<Bifurcacion>> hijos = red.getHijos();
 		hijos.comenzar();
 		caudal = caudal / hijos.tamanio();
 		while(!hijos.fin())

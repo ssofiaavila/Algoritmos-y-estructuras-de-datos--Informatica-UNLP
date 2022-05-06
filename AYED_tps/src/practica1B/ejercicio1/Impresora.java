@@ -41,7 +41,7 @@ public class Impresora {
 		if (i <= j) {
 			System.out.println(i);
 			i=i+1;
-			imprimirSinEstructura(i,j);
+			
 		}
 		else
 			System.out.println();
