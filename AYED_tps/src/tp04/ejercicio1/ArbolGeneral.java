@@ -1,8 +1,8 @@
 package tp04.ejercicio1;
 
-import practica2.ejercicio3.ColaGenerica;
 import tp02.ejercicio2.ListaEnlazadaGenerica;
 import tp02.ejercicio2.ListaGenerica;
+import tp02.ejercicio3.ColaGenerica;
 
 public class ArbolGeneral<T> {
 
@@ -74,62 +74,29 @@ public class ArbolGeneral<T> {
 		return null;
 	}
 	
-	
 	public Integer altura() {
-		int altura= -1;
-		if (this.esHoja())	return 0;
+		int total= -1;
+		if (this.esHoja()) return 0;
 		else {
-			if (this.tieneHijos()) {
-				ListaGenerica<ArbolGeneral<T>> hijos= this.getHijos();
-				hijos.comenzar();
-				while (!hijos.fin()) {
-					altura= Math.max(altura, hijos.proximo().altura());
-				}
+			ListaGenerica<ArbolGeneral<T>> hijos = this.getHijos();
+			hijos.comenzar();
+			while (!hijos.fin()) {
+				total =+ hijos.proximo().altura();
 			}
-		}
-		return altura;
-			
+		} 
+		return total;
 	}
 
 	public Integer nivel(T dato) {
-		ColaGenerica<ArbolGeneral<T>> cola= new ColaGenerica<ArbolGeneral<T>>();
-		ArbolGeneral<T> aux;
-		cola.encolar(this);
-		cola.encolar(null);
 		int nivel=0;
-		while (!cola.esVacia()) {
-			aux= cola.desencolar();
-			if (aux !=null) {
-				if (aux.getDato() ==dato) {
-					return nivel;
-				}
-				if (aux.tieneHijos()) {
-					ListaGenerica<ArbolGeneral<T>> hijos= aux.getHijos();
-					hijos.comenzar();
-					while (!hijos.fin()) {
-						cola.encolar(hijos.proximo());
-					}
-				}
-			}
-			else 
-				if (!cola.esVacia()) {
-					cola.encolar(null);
-					nivel++;
-				}
-		}
-		return nivel;
-	}
-
-	public Integer ancho() {
 		ColaGenerica<ArbolGeneral<T>> cola= new ColaGenerica<ArbolGeneral<T>>();
 		ArbolGeneral<T> aux;
 		cola.encolar(this);
 		cola.encolar(null);
-		int cantidad=0, max=-1, nivel=0;
 		while (!cola.esVacia()) {
-			aux= cola.desencolar();
-			if (aux!= null) {
-				cantidad++;
+			aux=cola.desencolar();
+			if (aux != null) {
+				if (aux.getDato()== dato) return nivel;
 				if (aux.tieneHijos()) {
 					ListaGenerica<ArbolGeneral<T>> hijos= aux.getHijos();
 					hijos.comenzar();
@@ -142,23 +109,66 @@ public class ArbolGeneral<T> {
 				if (!cola.esVacia()) {
 					cola.encolar(null);
 					nivel++;
-					if (cantidad > max) max=cantidad;
-					cantidad=0;
 				}
 		}
-		return max;
+		return nivel;
+		
+	}
+
+	public Integer ancho() {
+		int cant=0,max=0;
+		ColaGenerica<ArbolGeneral<T>> cola= new ColaGenerica<ArbolGeneral<T>>();
+		ArbolGeneral<T> aux;
+		cola.encolar(this);
+		cola.encolar(null);
+		while (!cola.esVacia()) {
+			aux=cola.desencolar();
+			if (aux!=null) {
+				cant++;
+				if (aux.tieneHijos()) {
+					ListaGenerica<ArbolGeneral<T>> hijos=aux.getHijos();
+					hijos.comenzar();
+					while (!hijos.fin()) {
+						cola.encolar(hijos.proximo());
+					}
+				}
+			}
+			else
+				if (!cola.esVacia()) {
+					cola.encolar(null);
+					if (cant> max) max=cant;
+					cant=0;
+				}
+		}		
+		return 0;
 	}
 	
-	
-	public boolean esAncestro(T a,T b) {
+	public boolean esAncestro(T a, T b) {
 		ListaGenerica<T> lista= new ListaEnlazadaGenerica<T>();
 		ListaGenerica<T> camino= new ListaEnlazadaGenerica<T>();
 		lista.agregarInicio(this.getDato());
 		esAncestro(a,b,lista,camino);
-		if (((camino.incluye(a))) && (camino.incluye(b))) {
+		if (((camino.incluye(a)))&& camino.incluye(b)) {
 			return true;
 		}
-		return false;
+		return false;		
+	}
+
+	private void esAncestro(T a, T b, ListaGenerica<T> lista, ListaGenerica<T> camino) {
+		if (this.getDato()== b) {
+			clonar(lista,camino);
+		}
+		if (camino.esVacia()) {
+			ListaGenerica<ArbolGeneral<T>> hijos=this.getHijos();
+			hijos.comenzar();
+			while ((!hijos.fin())&& (camino.esVacia())) {
+				ArbolGeneral<T> aux= hijos.proximo();
+				lista.agregarFinal(aux.getDato());
+				aux.esAncestro(a, b,lista,camino);
+				lista.eliminarEn(lista.tamanio());
+			}
+		}
+				
 	}
 	
 	private void clonar(ListaGenerica<T> lista, ListaGenerica<T> camino) {
@@ -170,20 +180,6 @@ public class ArbolGeneral<T> {
 	
 	
 	
-	private void esAncestro(T a,T b, ListaGenerica<T> lista, ListaGenerica<T> camino) {
-		if (this.getDato()==b) {
-			clonar(lista,camino);
-		}
-		if (camino.esVacia()) {
-			ListaGenerica<ArbolGeneral<T>> hijos= this.getHijos();
-			hijos.comenzar();
-			while ((!hijos.fin())&& (camino.esVacia())) {
-				ArbolGeneral<T> aux= hijos.proximo();
-				lista.agregarFinal(aux.getDato());
-				aux.esAncestro(a, b,lista,camino);
-				lista.eliminarEn(lista.tamanio());
-			}
-		}
-	}
+	
 
 }
