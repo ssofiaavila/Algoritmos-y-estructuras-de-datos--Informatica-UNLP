@@ -41,4 +41,6 @@ public Integer buscarMayorEnPostOrden()
 9) Escribir un método frontera de un árbol general de numeros enteros.
 La frontera resulta ser las hojas
 
+10) Escribir un método en la clase Sumador, que dado un árbol binario, devuelva la suma de todos sus elementos.
+
 

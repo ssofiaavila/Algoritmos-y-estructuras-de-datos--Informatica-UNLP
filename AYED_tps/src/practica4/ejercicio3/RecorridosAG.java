@@ -55,21 +55,22 @@ public class RecorridosAG {
 	}
 
 	private void numerosImparesMayoresQuePostOrden(ArbolGeneral<Integer> ab, ListaGenerica<Integer> nros, int n) {
-		
+		ListaGenerica<ArbolGeneral<Integer>> hijos;
 		if (!ab.esVacio()) {
 			if (ab.tieneHijos()) {
-				ListaGenerica<ArbolGeneral<Integer>> hijos= ab.getHijos();
+				hijos= ab.getHijos();
 				hijos.comenzar();
 				numerosImparesMayoresQuePostOrden(hijos.proximo(),nros,n);
-			}
+			
 			if (ab.getDato() % 2 == 0 && ab.getDato() > 2) nros.agregarFinal(ab.getDato());
 			
 			while (!hijos.fin()) {
-				numerosImapresMayoresQuePostOrden(hijos.proximo(),nros,n);		
+				numerosImparesMayoresQuePostOrden(hijos.proximo(),nros,n);		
 				
 			}
-		}
 		
+			}	
+		}
 	}
 	
 	
