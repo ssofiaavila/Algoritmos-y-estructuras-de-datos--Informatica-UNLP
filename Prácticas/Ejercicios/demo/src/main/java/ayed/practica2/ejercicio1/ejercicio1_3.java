@@ -1,11 +1,11 @@
-package ayed.practica2;
+package ayed.practica2.ejercicio1;
 
-import ayed.tp02.*;
-import ayed.tp02.ejercicio1.ListaDeEnterosConArreglos;
-public class ejercicio1_2 {
+import ayed.tp02.ejercicio1.ListaDeEnterosEnlazada;
+
+public class ejercicio1_3 {
     public static void main (String[]args){
 
-        ListaDeEnterosConArreglos lista= new ListaDeEnterosConArreglos();
+        ListaDeEnterosEnlazada lista= new ListaDeEnterosEnlazada();
         lista.agregarFinal(25);
         lista.agregarFinal(10);
         lista.agregarFinal(16);
