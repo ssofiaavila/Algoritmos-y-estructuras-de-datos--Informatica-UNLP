@@ -3,6 +3,7 @@ package ayed.practica3;
 
 import ayed.tp02.ejercicio2.ListaGenerica;
 import ayed.tp03.ejercicio1.ArbolBinario;
+import ayed.tp03.ejercicio3.*;
 
 
 public class TestContadorArbol {

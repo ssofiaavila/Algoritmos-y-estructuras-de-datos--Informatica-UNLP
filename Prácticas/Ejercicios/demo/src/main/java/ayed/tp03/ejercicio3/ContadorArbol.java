@@ -1,4 +1,4 @@
-package ayed.practica3;
+package ayed.tp03.ejercicio3;
 
 import ayed.tp02.ejercicio2.ListaEnlazadaGenerica;
 import ayed.tp02.ejercicio2.ListaGenerica;

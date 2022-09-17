@@ -15,7 +15,7 @@ hasta llegar a las hojas en una red binaria llena.*/
 
 
 public class RedBinariaLlena {
-	private ArbolBinario<Integer> abb;
+	private ArbolBinario<Integer> abb= new ArbolBinario<Integer>();
 	
 	public RedBinariaLlena(ArbolBinario<Integer> ab) {
 		this.abb=ab;
@@ -24,19 +24,26 @@ public class RedBinariaLlena {
 	public int retardoEnvio() {
 		if (this.abb.esVacio())
 			return 0;
-		return this.retardoEnvio(abb);
+		return this.retardoEnvio(this.abb);
 	}
 
 	private int retardoEnvio(ArbolBinario<Integer> ab) {
 		if (ab.esHoja()) {
 			return ab.getDato();
 		}
+		if (ab.esVacio())
+			return 0;
 		else {
 			int cant=0;
-			int dcho= this.retardoEnvio(ab.getHijoDerecho());
-			int izq=this.retardoEnvio(ab.getHijoIzquierdo());
+			int izq=0;
+			int dcho=0;
+			if (ab.tieneHijoDerecho())
+				dcho= this.retardoEnvio(ab.getHijoDerecho());
+			if (ab.tieneHijoIzquierdo())
+				izq=this.retardoEnvio(ab.getHijoIzquierdo());
+			
 			int max= Math.max(izq,dcho);
-			return ab.getDato()+ cant;	
+			return ab.getDato()+ max;	
 		}
 		
 		
