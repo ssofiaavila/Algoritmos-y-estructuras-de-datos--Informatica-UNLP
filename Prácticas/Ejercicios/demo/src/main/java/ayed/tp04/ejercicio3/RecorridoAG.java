@@ -55,7 +55,7 @@ public class RecorridoAG{
 					numerosImparesMayoresQueInOrden(hijos.proximo(),n,lista);
 				}
 			}
-            else{
+            else{ //en caso de que no tenga datos pero el nodo tiene algún dato
                 if ((a.getDato() % 2 != 0 && (a.getDato() > n))) {
                     lista.agregarFinal(a.getDato());			
                 }
@@ -63,6 +63,36 @@ public class RecorridoAG{
 			
 		}
         
+    }
+
+    public ListaGenerica<Integer> numerosImparesMayoresQuePostOrden(ArbolGeneral<Integer> a, Integer n){
+        ListaGenerica<Integer> lista = new ListaEnlazadaGenerica<Integer>();
+        numerosImparesMayoresQuePostOrden(a,n, lista);
+        return lista;
+
+
+    }
+
+    private void numerosImparesMayoresQuePostOrden(ArbolGeneral<Integer> a, Integer n, ListaGenerica<Integer> lista) {
+        if (!a.esVacio()) {
+			if (a.tieneHijos()) {
+				ListaGenerica<ArbolGeneral<Integer>> hijos= a.getHijos();
+				hijos.comenzar();
+				while (!hijos.fin()) {
+					numerosImparesMayoresQueInOrden(hijos.proximo(),n,lista);
+				}
+                if ((a.getDato() % 2 != 0 && (a.getDato() > n))) {
+                    lista.agregarFinal(a.getDato());			
+                }
+			}
+            else{ //en caso de que no tenga datos pero el nodo tiene algún dato
+                if ((a.getDato() % 2 != 0 && (a.getDato() > n))) {
+                    lista.agregarFinal(a.getDato());			
+                }
+            }
+			
+		}
+
     }
 
 

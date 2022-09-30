@@ -61,5 +61,13 @@ public class TestRecorridoAG {
         }
 
 
+		// RECORRIDO postOrden
+		System.out.println("Recorrido PostOrden");
+		ListaGenerica<Integer> postOrden= recorridos.numerosImparesMayoresQuePostOrden(a, 5);
+		inOrden.comenzar();
+		while (!inOrden.fin()){
+			System.out.println(inOrden.proximo());
+		}
+
     }
 }
