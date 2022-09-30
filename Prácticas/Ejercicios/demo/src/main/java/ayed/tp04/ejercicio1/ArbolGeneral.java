@@ -1,7 +1,7 @@
-package tp04.ejercicio1;
+package ayed.tp04.ejercicio1;
 
-import tp02.ejercicio2.ListaEnlazadaGenerica;
-import tp02.ejercicio2.ListaGenerica;
+import ayed.tp02.ejercicio2.ListaEnlazadaGenerica;
+import ayed.tp02.ejercicio2.ListaGenerica;
 
 public class ArbolGeneral<T> {
 
