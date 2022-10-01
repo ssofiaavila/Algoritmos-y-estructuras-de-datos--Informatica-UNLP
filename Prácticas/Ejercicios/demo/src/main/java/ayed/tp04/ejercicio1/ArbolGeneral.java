@@ -77,9 +77,18 @@ public class ArbolGeneral<T> {
 
 	/*devuelve la altura del árbol, es decir, la longitud del camino más largo desde el nodo raíz hasta una hoja. */	
 	public Integer altura() {
-		
-
-		return -1;
+		Integer total=0;
+		if (this.esHoja()){
+			return 0;
+		}
+		else{
+			ListaGenerica<ArbolGeneral<T>> hijos= this.getHijos();
+			hijos.comenzar();
+			while (!hijos.fin()){
+				total= 1+ hijos.proximo().altura();
+			}
+		}
+		return total;
 	}
 
 
@@ -149,6 +158,16 @@ public class ArbolGeneral<T> {
 			}
 		}
 		return cant_max;
+	}
+
+
+	/* Se dice que un nodo n es ancestro de un nodo m si existe un camino desde n a m.
+Se dice que un nodo n es descendiente de un nodo m si existe un camino desde m a n.
+ determine si un valor a es ancestro de un valor b.*/
+	public boolean esAncestro(T n, T m){
+
+
+		return true;
 	}
 	
 

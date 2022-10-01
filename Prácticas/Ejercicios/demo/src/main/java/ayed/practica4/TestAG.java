@@ -4,7 +4,7 @@ import ayed.tp02.ejercicio2.ListaEnlazadaGenerica;
 import ayed.tp02.ejercicio2.ListaGenerica;
 import ayed.tp04.ejercicio1.ArbolGeneral;
 
-public class TestAnchoAG {
+public class TestAG {
 
 
     /*
@@ -54,7 +54,8 @@ public class TestAnchoAG {
 
 
         // TESTS
-        System.out.println("Nivel de 9: " + a.nivel(9)); //espero nivel 2
+        System.out.println("Altura del árbol: "+ a.altura()); //espero 4
+        System.out.println("Nivel de 9: " + a.nivel(9)); 
         System.out.println("Ancho: "+ a.ancho());
 
 
