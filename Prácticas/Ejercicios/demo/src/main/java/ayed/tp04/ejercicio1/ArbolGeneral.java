@@ -164,11 +164,52 @@ public class ArbolGeneral<T> {
 	/* Se dice que un nodo n es ancestro de un nodo m si existe un camino desde n a m.
 Se dice que un nodo n es descendiente de un nodo m si existe un camino desde m a n.
  determine si un valor a es ancestro de un valor b.*/
-	public boolean esAncestro(T n, T m){
-
-
+ public Boolean esAncestro (T a,T b) {
+	ListaGenerica<T> lista = new ListaEnlazadaGenerica<T>();
+	ListaGenerica<T> camino = new ListaEnlazadaGenerica<T>();
+	lista.agregarInicio(this.getDato());
+	esAncestro (a,b);
+	if ((camino.incluye(a)) && (camino.incluye(b))){
 		return true;
 	}
+	return false;	
+}
+
+public Boolean esAncestro2 (T a,T b) {
+	return buscarA(a,b,this);
+}
+
+private Boolean buscarA (T a, T b, ArbolGeneral<T> arbol) {
+	Boolean ok = false;
+	if (arbol.getDato() == a) {
+		if (arbol.tieneHijos()) {
+			ListaGenerica <ArbolGeneral<T>> l = arbol.getHijos();
+			l.comenzar();
+			while((!l.fin())&& (!ok)) 
+				ok = buscarB(a,b,l.proximo());
+		}
+	}
+	if (arbol.tieneHijos()) {
+		ListaGenerica <ArbolGeneral<T>> l = arbol.getHijos();
+		l.comenzar();
+		while((!l.fin())&& (!ok)) 
+			ok = buscarA(a,b,l.proximo());	
+	}
+ return ok;
+}
+
+private Boolean buscarB (T a, T b, ArbolGeneral<T> arbol) {
+	Boolean ok = false;
+	if (arbol.getDato() == b)
+		return true;
+	if (arbol.tieneHijos()) {
+		ListaGenerica <ArbolGeneral<T>> l = arbol.getHijos();
+		l.comenzar();
+		while((!l.fin())&& (!ok)) 
+			ok = buscarB(a,b,l.proximo());
+	}
+return ok;	
+}
 	
 
 }
