@@ -165,51 +165,73 @@ public class ArbolGeneral<T> {
 Se dice que un nodo n es descendiente de un nodo m si existe un camino desde m a n.
  determine si un valor a es ancestro de un valor b.*/
  public Boolean esAncestro (T a,T b) {
-	ListaGenerica<T> lista = new ListaEnlazadaGenerica<T>();
-	ListaGenerica<T> camino = new ListaEnlazadaGenerica<T>();
-	lista.agregarInicio(this.getDato());
-	esAncestro (a,b);
-	if ((camino.incluye(a)) && (camino.incluye(b))){
-		return true;
-	}
-	return false;	
-}
+	ArbolGeneral<T> nodo_a= buscarA(this,a); //en el árbol tengo que encontrar el nodo del ancestro o sea el nodo que contiene A
+	boolean result= tieneAncestro(nodo_a,b); //una vez que tengo el nodo raíz que contiene a A, entre sus hijos voy a buscar a B
+	return result;
+ } 
 
-public Boolean esAncestro2 (T a,T b) {
-	return buscarA(a,b,this);
-}
+ private ArbolGeneral<T> buscarA(ArbolGeneral<T> ab,T a){
+	boolean encontre= false;
+	ArbolGeneral<T> raiz_A= null; //voy a devolver la raíz o sea A
+	ColaGenerica<ArbolGeneral<T>> cola= new ColaGenerica<ArbolGeneral<T>>(); 
+	ArbolGeneral<T> arbol_aux; 
+	cola.encolar(ab); 
+	cola.encolar(null);
 
-private Boolean buscarA (T a, T b, ArbolGeneral<T> arbol) {
-	Boolean ok = false;
-	if (arbol.getDato() == a) {
-		if (arbol.tieneHijos()) {
-			ListaGenerica <ArbolGeneral<T>> l = arbol.getHijos();
-			l.comenzar();
-			while((!l.fin())&& (!ok)) 
-				ok = buscarB(a,b,l.proximo());
+	while ((!cola.esVacia()) && (!encontre)){
+			arbol_aux=cola.desencolar();
+			if (arbol_aux != null){
+				if (arbol_aux.getDato() == a){
+					raiz_A= arbol_aux;
+					encontre=true;
+				}
+				if (arbol_aux.tieneHijos()){
+					ListaGenerica<ArbolGeneral<T>> hijos= arbol_aux.getHijos();
+					hijos.comenzar();
+					while (!hijos.fin()){
+						cola.encolar(hijos.proximo());
+					}
+				}
+			}
+			else {
+				if (!cola.esVacia()){
+					cola.encolar(null);
+                }          		  			
+			}
 		}
-	}
-	if (arbol.tieneHijos()) {
-		ListaGenerica <ArbolGeneral<T>> l = arbol.getHijos();
-		l.comenzar();
-		while((!l.fin())&& (!ok)) 
-			ok = buscarA(a,b,l.proximo());	
-	}
- return ok;
-}
+		return raiz_A;
+ }
 
-private Boolean buscarB (T a, T b, ArbolGeneral<T> arbol) {
-	Boolean ok = false;
-	if (arbol.getDato() == b)
-		return true;
-	if (arbol.tieneHijos()) {
-		ListaGenerica <ArbolGeneral<T>> l = arbol.getHijos();
-		l.comenzar();
-		while((!l.fin())&& (!ok)) 
-			ok = buscarB(a,b,l.proximo());
+ public boolean tieneAncestro(ArbolGeneral<T> nodo_a, T b){
+	boolean encontre= false;
+	ListaGenerica<ArbolGeneral<T>> hijos= nodo_a.getHijos();
+	hijos.comenzar();
+	while (!hijos.fin()){
+		encontre= encontre || recursiva(hijos.proximo(),b);
 	}
-return ok;	
-}
+	return encontre;
+
+ }
+
+ public boolean recursiva(ArbolGeneral<T> nodo, T b){
+	if (nodo.getDato() == b){
+		return true;
+	}
+	else{
+		
+			boolean encontro= false;
+			ListaGenerica<ArbolGeneral<T>> hijos= nodo.getHijos();
+			hijos.comenzar();
+			while (!hijos.fin()){
+				encontro= encontro || recursiva(hijos.proximo(), b);
+			}
+			return encontro;		
+		
+		
+	}
+	
+ }
+
 	
 
 }
