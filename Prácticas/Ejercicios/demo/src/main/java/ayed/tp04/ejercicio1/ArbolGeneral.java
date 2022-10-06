@@ -202,7 +202,7 @@ Se dice que un nodo n es descendiente de un nodo m si existe un camino desde m a
 		return raiz_A;
  }
 
- public boolean tieneAncestro(ArbolGeneral<T> nodo_a, T b){
+ private boolean tieneAncestro(ArbolGeneral<T> nodo_a, T b){
 	boolean encontre= false;
 	ListaGenerica<ArbolGeneral<T>> hijos= nodo_a.getHijos();
 	hijos.comenzar();
@@ -213,7 +213,7 @@ Se dice que un nodo n es descendiente de un nodo m si existe un camino desde m a
 
  }
 
- public boolean recursiva(ArbolGeneral<T> nodo, T b){
+ private boolean recursiva(ArbolGeneral<T> nodo, T b){
 	if (nodo.getDato() == b){
 		return true;
 	}
