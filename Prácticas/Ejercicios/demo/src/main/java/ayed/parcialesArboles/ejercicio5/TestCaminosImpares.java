@@ -1,5 +1,7 @@
 package ayed.parcialesArboles.ejercicio5;
 
+import ayed.tp02.ejercicio2.ListaEnlazadaGenerica;
+import ayed.tp02.ejercicio2.ListaGenerica;
 import ayed.tp04.ejercicio1.ArbolGeneral;
 
 /*Dado un árbol general, encontrar todos los caminos desde la raíz a una hoja, tales que la cantidad de
@@ -30,7 +32,10 @@ public class TestCaminosImpares {
         a.agregarHijo(c);
         a.agregarHijo(d);
 
-        
+        CaminosPares caminos= new CaminosPares();
+        ListaGenerica<ListaEnlazadaGenerica<Character>> listaDeLista= caminos.caminosPares(a);
+        //Espero que imprima 3 porque hay 3 caminos cuya cantidad de nodos es par
+        System.out.println(listaDeLista.tamanio());
 
 
 
