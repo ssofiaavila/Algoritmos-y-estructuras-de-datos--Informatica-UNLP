@@ -21,12 +21,11 @@ public class CaminosPares {
             if ((caminoActual.tamanio() % 2) == 0 ){
                 clonar(caminos,caminoActual);   
             }
-            caminoActual.eliminarEn(caminoActual.tamanio());
-            
+            caminoActual.eliminarEn(caminoActual.tamanio());            
         }
         else{
             caminoActual.agregarFinal(ab.getDato()); 
-            ListaGenerica<ArbolGeneral<Character>> hijos= ab.getHijos();
+            ListaGenerica<ArbolGeneral<Character>> hijos= ab.getHijos(); 
             hijos.comenzar();
             while (!hijos.fin()){
                 caminosPares(caminos,caminoActual,hijos.proximo());
