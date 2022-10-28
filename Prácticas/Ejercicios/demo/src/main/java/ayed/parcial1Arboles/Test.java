@@ -69,7 +69,7 @@ public class Test {
 
          RecorridoPares resolver= new RecorridoPares();
 
-         ListaGenerica<Integer> recorrido= resolver.resolver(a7, 4);
+         ListaGenerica<Integer> recorrido= resolver.resolver(a7, 3);
          recorrido.comenzar();
          while (!recorrido.fin()){
             System.out.println(recorrido.proximo());
