@@ -1,14 +1,12 @@
-package tp06.ejercicio3;
+package ayed.tp06.ejercicio3;
 
-import tp02.ejercicio2.ListaEnlazadaGenerica;
-import tp02.ejercicio2.ListaGenerica;
+
+import ayed.tp02.ejercicio2.ListaEnlazadaGenerica;
+import ayed.tp02.ejercicio2.ListaGenerica;
 
 /**
  * Implementacion del grafo con lista de ady
- * 
- * @author juan
- *
- */
+  */
 
 public class GrafoImplListAdy<T> implements Grafo<T> {
 	ListaGenerica<Vertice<T>> vertices = new ListaEnlazadaGenerica<Vertice<T>>();
@@ -18,7 +16,7 @@ public class GrafoImplListAdy<T> implements Grafo<T> {
 	public void agregarVertice(Vertice<T> v) {
 		if(!vertices.incluye(v)){
 		    vertices.agregarFinal(v);
-			((VerticeImplListAdy<T>) v).setPosicion(vertices.tamanio());
+			((VerticeImplListAdy<T>) v).setPosicion(vertices.tamanio()); 
 		}
 	}
 

@@ -1,13 +1,11 @@
-package tp06.ejercicio3;
+package ayed.tp06.ejercicio3;
 
-import tp02.ejercicio2.ListaGenerica;
+import ayed.tp02.ejercicio2.ListaGenerica;
 
 
 /**
  * Representa el grafo, donde se mantiene la estructura como un todo.
- * 
- * @author juan
- *
+
  */
 public interface Grafo<T> {
 

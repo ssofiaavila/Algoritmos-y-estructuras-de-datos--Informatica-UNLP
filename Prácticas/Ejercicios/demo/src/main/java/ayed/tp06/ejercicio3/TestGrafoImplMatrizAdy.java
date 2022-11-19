@@ -1,4 +1,4 @@
-package tp06.ejercicio3;
+/* package ayed.tp06.ejercicio3;
 
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
@@ -9,10 +9,7 @@ import org.junit.Test;
 
 import tp02.ejercicio2.ListaGenerica;
 
-/**
- * @author juan
- *
- */
+
 public class TestGrafoImplMatrizAdy{
 	GrafoImplMatrizAdy<Integer> grafo;
 	
@@ -146,3 +143,4 @@ public class TestGrafoImplMatrizAdy{
 	}
 
 }
+*/

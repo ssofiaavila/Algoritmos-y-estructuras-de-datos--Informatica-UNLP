@@ -1,10 +1,10 @@
 /**
  * 
  */
-package tp06.ejercicio3;
+package ayed.tp06.ejercicio3;
 
-import tp02.ejercicio2.ListaEnlazadaGenerica;
-import tp02.ejercicio2.ListaGenerica;
+import ayed.tp02.ejercicio2.ListaEnlazadaGenerica;
+import ayed.tp02.ejercicio2.ListaGenerica;
 
 /**
  * Implementacion del grafo con matriz

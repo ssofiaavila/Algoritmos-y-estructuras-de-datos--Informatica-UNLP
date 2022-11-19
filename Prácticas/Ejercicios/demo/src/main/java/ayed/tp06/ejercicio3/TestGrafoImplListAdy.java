@@ -1,6 +1,6 @@
-package tp06.ejercicio3;
-
-import tp02.ejercicio2.ListaGenerica;
+package ayed.tp06.ejercicio3;
+/* 
+import ayed.tp02.ejercicio2.ListaGenerica;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 import static org.junit.Assert.assertEquals;
@@ -10,10 +10,7 @@ import org.junit.Test;
 
 
 
-/**
- * @author juan
- *
- */
+
 public class TestGrafoImplListAdy {
 	GrafoImplListAdy<Integer> grafo;
 
@@ -149,3 +146,4 @@ public class TestGrafoImplListAdy {
 	}
 
 }
+*/

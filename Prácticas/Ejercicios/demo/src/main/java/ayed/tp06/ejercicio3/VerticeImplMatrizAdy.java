@@ -1,7 +1,8 @@
 /**
  * 
  */
-package tp06.ejercicio3;
+package ayed.tp06.ejercicio3;
+
 
 public class VerticeImplMatrizAdy<T> implements Vertice<T> {
 	private T dato;

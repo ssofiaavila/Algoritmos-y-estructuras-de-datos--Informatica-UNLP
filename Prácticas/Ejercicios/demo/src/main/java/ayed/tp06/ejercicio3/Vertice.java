@@ -1,4 +1,4 @@
-package tp06.ejercicio3;
+package ayed.tp06.ejercicio3;
 
 /**
  * Representa una Vertice de un grafo.
