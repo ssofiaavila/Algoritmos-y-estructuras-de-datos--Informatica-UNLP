@@ -18,6 +18,13 @@ Prácticas y material de algoritmos y esctructuras de datos, cursada 2do semestr
   * [Tests](https://github.com/ssofiaavila/Algoritmos-y-estructuras-de-datos--Informatica-UNLP/tree/main/Pr%C3%A1cticas/Ejercicios/demo/src/main/java/ayed/practica4)
 </details>
 
+* <details>
+  <summary> Práctica 6 </summary>
+  
+  * [Ejercicios teóricos](https://github.com/ssofiaavila/Algoritmos-y-estructuras-de-datos--Informatica-UNLP/blob/main/Pr%C3%A1cticas/Pr%C3%A1ctica%206%2C%20parte%20te%C3%B3rica.pdf)
+  * [Ejercicios prácticos](https://github.com/ssofiaavila/Algoritmos-y-estructuras-de-datos--Informatica-UNLP/tree/main/Pr%C3%A1cticas/Ejercicios/demo/src/main/java/ayed/tp06)
+</details>
+
 * [Ejercicios teoría árboles](https://github.com/ssofiaavila/Algoritmos-y-estructuras-de-datos--Informatica-UNLP/blob/main/Pr%C3%A1cticas/Ejercitaci%C3%B3n%20te%C3%B3rica%20de%20%C3%A1rboles%2C%20resoluci%C3%B3n.pdf)
 * [Ejercicios teoría heap](https://github.com/ssofiaavila/Algoritmos-y-estructuras-de-datos--Informatica-UNLP/blob/main/Pr%C3%A1cticas/Ejercitaci%C3%B3n%20te%C3%B3rica%20de%20heap%2C%20resoluci%C3%B3n.pdf)
 * <details>
