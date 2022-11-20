@@ -16,45 +16,45 @@ public class Mapa {
 
     /* ---------------------------------------------------------- DEVOLVER EL CAMINO --------------------------------------------------------------------- */
     public ListaGenerica<String> devolverCamino(String ciudad1, String ciudad2){
-        boolean[]marca = new boolean[mapaCiudades.listaDeVertices().tamanio() + 1];
-		ListaEnlazadaGenerica<String> lis = new ListaEnlazadaGenerica<String>();
-		ListaEnlazadaGenerica<String> camino = new ListaEnlazadaGenerica<String>();
-			ListaGenerica<Vertice<String>> aux = mapaCiudades.listaDeVertices();
+        boolean[]marca = new boolean[mapaCiudades.listaDeVertices().tamanio() + 1]; //arreglo para ir guardando los vertices que visité
+		ListaEnlazadaGenerica<String> lis = new ListaEnlazadaGenerica<String>(); //camino auxiliar hasta que arme el camino destino
+		ListaEnlazadaGenerica<String> camino = new ListaEnlazadaGenerica<String>(); //camino que me va a llevar de ciudad1 a ciudad2
+			ListaGenerica<Vertice<String>> aux = mapaCiudades.listaDeVertices(); //auxiliar con todos los vertices del G para encontrar ciudad1 (punto de inicio)
 			aux.comenzar();
-			Vertice<String> vertice;
-			boolean ok = false;
+			Vertice<String> vertice; 
+			boolean ok = false; //corta cuando encuentre ciudad1
 			int i = -1;
-			while ((!aux.fin()) && (!ok)) {
+			while ((!aux.fin()) && (!ok)) { //mientras que no haya revisado todos los vértices y no haya encontrado a ciudad1
 				vertice = aux.proximo();
 				if (vertice.dato() == ciudad1) {
 					ok = true;
-					i = vertice.getPosicion();
-					lis.agregarFinal(vertice.dato());
+					i = vertice.getPosicion(); //me guardo de indice correspondiente a la lista de vertices
+					lis.agregarFinal(vertice.dato()); //empiezo armando el camino auxiliar
 				}
 			}
-			if (i != -1) {
-				dfs (i,lis,camino,marca,ciudad2);
+			if (i != -1) { //o sea si tengo una posición válida= existe ciudad1 entonces hago el recorrido dfs desde ese vértice inicial
+				dfs (i,lis,camino,marca,ciudad2); //i= posición del vertice en la lista de adyacencia
 			}
 			
 		return camino;
     }
 
     private void dfs (int i,ListaEnlazadaGenerica<String> lis,ListaEnlazadaGenerica<String> camino,boolean[]marca,String ciudad2) {
-		marca[i] = true;
-		Vertice<String> v = mapaCiudades.listaDeVertices().elemento(i);
-		if (v.dato() == ciudad2) {
-			clonar (lis,camino);
+		marca[i] = true; //marco que determinado vértice ya lo visité
+		Vertice<String> v = mapaCiudades.listaDeVertices().elemento(i); //obtengo el puntero a ese vértice
+		if (v.dato() == ciudad2) { //si encontré la ciudad destino
+			clonar (lis,camino); //clono el camino auxiliar al camino resultado
 		}
-		if (camino.esVacia()){
-			ListaGenerica<Arista<String>> ady = mapaCiudades.listaDeAdyacentes(v);
+		if (camino.esVacia()){ //corte de control si ya encontré el camino
+			ListaGenerica<Arista<String>> ady = mapaCiudades.listaDeAdyacentes(v); //me guardo los adyacentes de un vertice
 			ady.comenzar();
-			while ((!ady.fin()) && (camino.esVacia())) {
+			while ((!ady.fin()) && (camino.esVacia())) { //mientras que no haya visitado todos sus adyacentes y todavia no encontré el camino resultado
 				Vertice<String> destino = ady.proximo().verticeDestino();
 				int j = destino.getPosicion();
-				if (!marca[j]) {
-					lis.agregarFinal(destino.dato());
-					dfs(j,lis,camino,marca,ciudad2);
-					lis.eliminarEn(lis.tamanio());
+				if (!marca[j]) { //en caso de que no esté visitado
+					lis.agregarFinal(destino.dato()); //agrego ese vértice al camino auxiliar
+					dfs(j,lis,camino,marca,ciudad2); //sigo recorriendo recursivamente el G
+					lis.eliminarEn(lis.tamanio()); //saco el vértice recorrido para seguir por otros vértices adyacentes a v(i)
 				}
 			}
 		
@@ -69,12 +69,31 @@ public class Mapa {
 
     /* ---------------------------------------------------------- DEVOLVER EL CAMINO SIN DETERMINADAS CIUDADES------------------------------------------- */
 
-    
-
-
     public ListaGenerica<String> devolverCaminoExceptuando(String ciudad1,String ciudad2, ListaGenerica<String> ciudades){
-                
-        return null;
+        boolean[]marca = new boolean[mapaCiudades.listaDeVertices().tamanio() + 1]; //arreglo para ir guardando los vertices que visité
+		ListaEnlazadaGenerica<String> lis = new ListaEnlazadaGenerica<String>(); //camino auxiliar hasta que arme el camino destino
+		ListaEnlazadaGenerica<String> camino = new ListaEnlazadaGenerica<String>(); //camino que me va a llevar de ciudad1 a ciudad2
+			ListaGenerica<Vertice<String>> aux = mapaCiudades.listaDeVertices(); //auxiliar con todos los vertices del G para encontrar ciudad1 (punto de inicio)
+			aux.comenzar();
+			Vertice<String> vertice; 
+			boolean ok = false; //corta cuando encuentre ciudad1
+			int i = -1;
+			while ((!aux.fin()) && (!ok)) { //mientras que no haya revisado todos los vértices y no haya encontrado a ciudad1
+				vertice = aux.proximo();
+				if (vertice.dato() == ciudad1) {
+					ok = true;
+					i = vertice.getPosicion(); //me guardo de indice correspondiente a la lista de vertices
+					lis.agregarFinal(vertice.dato()); //empiezo armando el camino auxiliar
+				}
+			}
+			if (i != -1) { //o sea si tengo una posición válida= existe ciudad1 entonces hago el recorrido dfs desde ese vértice inicial
+				dfs (i,lis,camino,marca,ciudad2); //i= posición del vertice en la lista de adyacencia
+			}
+			
+		return camino;
+		
+
+
     }
 
 
