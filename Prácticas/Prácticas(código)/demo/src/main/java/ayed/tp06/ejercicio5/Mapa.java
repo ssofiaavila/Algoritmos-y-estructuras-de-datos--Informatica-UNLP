@@ -148,6 +148,7 @@ public class Mapa {
 		if (v.dato() == ciudad2 && (distancia < min.getMinimo())) { //si encontré la ciudad destino
 			clonar2 (lis,camino); //clono el camino auxiliar al camino resultado
 			marca[i]=false;
+			
 		}
 		else{
 			ListaGenerica<Arista<String>> ady = mapaCiudades.listaDeAdyacentes(v); //me guardo los adyacentes de un vertice
