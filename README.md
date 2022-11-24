@@ -18,6 +18,7 @@ Prácticas y material de algoritmos y esctructuras de datos, cursada 2do semestr
   * [Tests](https://github.com/ssofiaavila/Algoritmos-y-estructuras-de-datos--Informatica-UNLP/tree/main/Pr%C3%A1cticas/Ejercicios/demo/src/main/java/ayed/practica4)
 </details>
 
+* [Práctica 5](https://github.com/ssofiaavila/Algoritmos-y-estructuras-de-datos--Informatica-UNLP/blob/main/Pr%C3%A1cticas/Pra%CC%81ctica%205.pdf)
 * <details>
   <summary> Práctica 6 </summary>
   
