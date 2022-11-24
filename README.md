@@ -22,7 +22,7 @@ Prácticas y material de algoritmos y esctructuras de datos, cursada 2do semestr
   <summary> Práctica 6 </summary>
   
   * [Ejercicios teóricos](https://github.com/ssofiaavila/Algoritmos-y-estructuras-de-datos--Informatica-UNLP/blob/main/Pr%C3%A1cticas/Pr%C3%A1ctica%206%2C%20parte%20te%C3%B3rica.pdf)
-  * [Ejercicios prácticos](https://github.com/ssofiaavila/Algoritmos-y-estructuras-de-datos--Informatica-UNLP/tree/main/Pr%C3%A1cticas/Ejercicios/demo/src/main/java/ayed/tp06)
+  * [Ejercicios prácticos](https://github.com/ssofiaavila/Algoritmos-y-estructuras-de-datos--Informatica-UNLP/tree/main/Pr%C3%A1cticas/Pr%C3%A1cticas(c%C3%B3digo)/demo/src/main/java/ayed/tp06)
 </details>
 
 * [Ejercicios teoría árboles](https://github.com/ssofiaavila/Algoritmos-y-estructuras-de-datos--Informatica-UNLP/blob/main/Pr%C3%A1cticas/Pr%C3%A1ctica%20te%C3%B3rica%20de%20%C3%A1rboles%2C%20resoluci%C3%B3n.pdf)
