@@ -9,7 +9,6 @@ import ayed.tp06.ejercicio3.Vertice;
 public class Parcial6 {
 
     public ListaGenerica<ListaGenerica<String>> caminosCosto10(Grafo<String> ciudades) {
-        boolean[]marca = new boolean[ciudades.listaDeVertices().tamanio() + 1];
 		ListaGenerica<String> aux = new ListaEnlazadaGenerica<String>();
         ListaGenerica<ListaGenerica<String>> caminos= new ListaEnlazadaGenerica<ListaGenerica<String>>();
         int costo;
@@ -17,16 +16,15 @@ public class Parcial6 {
 
 		for (int i=1; i <=ciudades.listaDeVertices().tamanio(); i++) {
             costo=0;
-			caminosCosto10(i,ciudades,caminos,marca,aux,costo);
-            marca[i]=false;
+			caminosCosto10(i,ciudades,caminos,aux,costo);
             aux.eliminarEn(aux.tamanio()); //elimina ese vertice de la lista auxiliar
 		}
 		return caminos; 
         
     }
 
-    private void caminosCosto10(int i, Grafo<String> ciudades, ListaGenerica<ListaGenerica<String>> caminos,boolean[] marca, ListaGenerica<String> aux, int costo) {
-        marca[i] = true;
+    private void caminosCosto10(int i, Grafo<String> ciudades, ListaGenerica<ListaGenerica<String>> caminos, ListaGenerica<String> aux, int costo) {
+        
 		Vertice<String> v = ciudades.listaDeVertices().elemento(i);
         aux.agregarFinal(v.dato());
         if (costo ==10){
@@ -39,9 +37,9 @@ public class Parcial6 {
                 Arista<String> arista= ady.proximo();
                 int j = arista.verticeDestino().getPosicion();
                 costo+=arista.peso();                
-                caminosCosto10(j,ciudades,caminos,marca,aux,costo);
+                caminosCosto10(j,ciudades,caminos,aux,costo);
                 costo-= arista.peso();
-                marca[j]=false;
+                
                 aux.eliminarEn(aux.tamanio());                
             }
         }
