@@ -4,6 +4,7 @@ import ayed.tp02.ejercicio2.ListaEnlazadaGenerica;
 import ayed.tp02.ejercicio2.ListaGenerica;
 import ayed.tp06.ejercicio3.Grafo;
 import ayed.tp06.ejercicio3.GrafoImplListAdy;
+import ayed.tp06.ejercicio3.Vertice;
 import ayed.tp06.ejercicio3.VerticeImplListAdy;
 
 public class TestParcial6 {
@@ -11,44 +12,53 @@ public class TestParcial6 {
 
 
 
-        Grafo<String> ciudades = new GrafoImplListAdy<String>();
+        Vertice<String> v1 = new VerticeImplListAdy<String>("Buenos Aires");
+		Vertice<String> v2 = new VerticeImplListAdy<String>("Santiago");
+		Vertice<String> v3 = new VerticeImplListAdy<String>("Lima");
+		Vertice<String> v4 = new VerticeImplListAdy<String>("Montevideo");
+		Vertice<String> v5 = new VerticeImplListAdy<String>("Asuncion");
+		Vertice<String> v6 = new VerticeImplListAdy<String>("Caracas");
+		Vertice<String> v7 = new VerticeImplListAdy<String>("La Habana");
 
-        VerticeImplListAdy<String> santiago = new VerticeImplListAdy<String>("Santiago");
-        VerticeImplListAdy<String> buenosAires = new VerticeImplListAdy<String>("Buenos Aires");
-        VerticeImplListAdy<String> montevideo = new VerticeImplListAdy<String>("Montevideo");
-        VerticeImplListAdy<String> asuncion = new VerticeImplListAdy<String>("Asunción");
-        VerticeImplListAdy<String> lima = new VerticeImplListAdy<String>("Lima");
-        VerticeImplListAdy<String> caracas = new VerticeImplListAdy<String>("Caracas");
-        VerticeImplListAdy<String> laHabana = new VerticeImplListAdy<String>("La Habana");
+		Grafo<String> ciudades = new GrafoImplListAdy<String>();
+		
+		ciudades.agregarVertice(v1);
+		ciudades.agregarVertice(v2);
+		ciudades.agregarVertice(v3);
+		ciudades.agregarVertice(v4);
+		ciudades.agregarVertice(v5);
+		ciudades.agregarVertice(v6);
+		ciudades.agregarVertice(v7);
 
-        santiago.conectar(laHabana, 4);
-        santiago.conectar(asuncion,500);
-        
-        buenosAires.conectar(santiago,3);
-        buenosAires.conectar(asuncion,10);
-        buenosAires.conectar(montevideo,4);
-        buenosAires.conectar(lima,2);
+		ciudades.conectar(v1, v2,3);
+		ciudades.conectar(v1, v3,2);
+		ciudades.conectar(v1, v4,4);
+		ciudades.conectar(v1, v5,10);
+		ciudades.conectar(v2, v5,500);
+		ciudades.conectar(v2, v7,4);
+		ciudades.conectar(v3, v5,4);
+		ciudades.conectar(v4, v5,6);
+		ciudades.conectar(v6, v5,11);
+		ciudades.conectar(v6, v7,10);
 
-        montevideo.conectar(asuncion,6);
 
-        lima.conectar(asuncion,4);
-        
-        caracas.conectar(asuncion,11);
-        caracas.conectar(laHabana,10);
+       
+
 
         Parcial6 resolver= new Parcial6();
         ListaGenerica<ListaGenerica<String>> recorridos= resolver.caminosCosto10(ciudades);
         recorridos.comenzar();
-
 		ListaGenerica<String> aux;
         while (!recorridos.fin()){
-            aux= recorridos.proximo();
-            aux.comenzar();
-            while (!aux.fin()){
-                System.out.println(aux.proximo());
-            }
+            
+                System.out.println(recorridos.proximo());
+         
             System.out.println("--------------------------");
+   
+
         }
+  
+
 
 
         // ESPERO 3 CAMINOS
