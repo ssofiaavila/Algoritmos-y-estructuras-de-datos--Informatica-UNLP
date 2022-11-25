@@ -50,5 +50,7 @@ Prácticas y material de algoritmos y esctructuras de datos, cursada 2do semestr
   <summary> Resumenes </summary> 
   
   * [Árboles y heap](https://github.com/ssofiaavila/Algoritmos-y-estructuras-de-datos--Informatica-UNLP/blob/main/Apuntes%20%2B%20resumenes/Resumen%20m%C3%B3dulo%201.pdf)
+  * [Grafos](https://github.com/ssofiaavila/Algoritmos-y-estructuras-de-datos--Informatica-UNLP/blob/main/Apuntes%20%2B%20resumenes/Resumen%20grafos.pdf)
+  
   
  </details>
