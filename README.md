@@ -30,12 +30,19 @@ Prácticas y material de algoritmos y esctructuras de datos, cursada 2do semestr
 * [Ejercicios teoría heap](https://github.com/ssofiaavila/Algoritmos-y-estructuras-de-datos--Informatica-UNLP/blob/main/Pr%C3%A1cticas/Pr%C3%A1ctica%20te%C3%B3rica%20de%20heap%2C%20resoluci%C3%B3n.pdf)
 * [Ejercicios teoría grafos](https://github.com/ssofiaavila/Algoritmos-y-estructuras-de-datos--Informatica-UNLP/blob/main/Pr%C3%A1cticas/Pr%C3%A1ctica%20te%C3%B3rica%20de%20grafos%2C%20resoluci%C3%B3n.pdf)
 * <details>
-  <summary> Parciales módulo 1 </summary>
+  <summary> Parciales árboles </summary>
   
   * [Enunciados](https://github.com/ssofiaavila/Algoritmos-y-estructuras-de-datos--Informatica-UNLP/blob/main/Parciales/Enunciados%20m%C3%B3dulo%201-%20pr%C3%A1ctica.pdf)
   * [Resoluciones](https://github.com/ssofiaavila/Algoritmos-y-estructuras-de-datos--Informatica-UNLP/tree/main/Pr%C3%A1cticas/Ejercicios/demo/src/main/java/ayed/parcialesArboles)
   * [Parcial árboles 15/10 primera fecha](https://github.com/ssofiaavila/Algoritmos-y-estructuras-de-datos--Informatica-UNLP/tree/main/Pr%C3%A1cticas/Ejercicios/demo/src/main/java/ayed/parcial1Arboles)
  
+ </details>
+ 
+* <details>
+  <summary> Parciales grafos </summary>
+  
+  * [Enunciados](https://github.com/ssofiaavila/Algoritmos-y-estructuras-de-datos--Informatica-UNLP/blob/main/Parciales/Enunciados%20pr%C3%A1ctico%2C%20grafos.pdf)
+  * [Resoluciones](https://github.com/ssofiaavila/Algoritmos-y-estructuras-de-datos--Informatica-UNLP/tree/main/Pr%C3%A1cticas/Pr%C3%A1cticas(c%C3%B3digo)/demo/src/main/java/ayed/parcialesGrafos)
 ----- 
 ## Material ##
 * [Teorías](https://github.com/ssofiaavila/Algoritmos-y-estructuras-de-datos--Informatica-UNLP/tree/main/Teor%C3%ADas)
