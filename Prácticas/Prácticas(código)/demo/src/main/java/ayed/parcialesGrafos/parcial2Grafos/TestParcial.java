@@ -1,4 +1,4 @@
-package ayed.parcial2Grafos;
+package ayed.parcialesGrafos.parcial2Grafos;
 
 import ayed.tp02.ejercicio2.ListaGenerica;
 import ayed.tp06.ejercicio3.Grafo;

@@ -1,4 +1,4 @@
-package ayed.parcial2Grafos.parcial1;
+package ayed.parcialesGrafos.parcial1Grafos;
 
 public class Ciudad {
     private String nombre;
