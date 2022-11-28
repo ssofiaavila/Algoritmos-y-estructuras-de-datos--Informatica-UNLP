@@ -14,7 +14,6 @@ public class Parcial9 {
         Max max= new Max();
         Vertice<Ciudad> origenV= buscar(ciudades,origen, destino);
         if (origenV!= null){
-            int cantControles=0;
             resolver(origenV.getPosicion(),ciudades,marca,destino,maxControles,origenV.dato().getTransito(),max);
         }
         return max.getMax();
@@ -60,7 +59,7 @@ public class Parcial9 {
             if (aux.dato().getNombre().equals(destino))
                 encontreD=true;           
         }    
-        return aux;
+        return verticeO;
     }
 
 }

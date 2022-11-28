@@ -10,8 +10,8 @@ public class parcial1 {
 
 
 
-    ListaGenerica<String> resolver(Grafo <Ciudad> ciudades, String origen, String destino){
-        int distancia=0;		
+    public ListaGenerica<String> resolver(Grafo <Ciudad> ciudades, String origen, String destino){
+    		
 		boolean[]marca = new boolean[ciudades.listaDeVertices().tamanio() + 1]; //arreglo para ir guardando los vertices que visité
 		ListaEnlazadaGenerica<String> lis = new ListaEnlazadaGenerica<String>(); //camino auxiliar hasta que arme el camino destino
 		ListaEnlazadaGenerica<String> camino = new ListaEnlazadaGenerica<String>(); //camino que me va a llevar de origen a destino
