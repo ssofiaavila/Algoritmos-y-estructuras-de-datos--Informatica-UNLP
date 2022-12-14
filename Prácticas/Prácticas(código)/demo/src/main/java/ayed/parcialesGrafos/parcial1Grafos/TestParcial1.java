@@ -71,7 +71,7 @@ public class TestParcial1 {
 		parcial1 parcial = new parcial1();
 		
 		ListaGenerica<String> camino = parcial.resolver(ciudades, "La Plata", "Suipacha");
-		System.out.println(camino.tamanio());
+	
 		camino.comenzar();
 		while(!camino.fin()) {
 			System.out.println(camino.proximo());
