@@ -39,14 +39,7 @@ public class TestParcial3 {
         ciudades.agregarVertice(pinamar);
 
 
-
-
-
-
-
-
-
-
+        //habilitada= 1
 
 
         ciudades.conectar(saladillo, navarro,1);
