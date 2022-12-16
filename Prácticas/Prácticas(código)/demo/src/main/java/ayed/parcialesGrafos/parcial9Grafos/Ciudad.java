@@ -1,28 +1,43 @@
 package ayed.parcialesGrafos.parcial9Grafos;
 
 public class Ciudad {
-
     private String nombre;
-    private int transito;
+    private int maxTransito;
 
-    public Ciudad(String nombre, int transito){
+    public Ciudad (String nombre, int maxTransito){
         this.nombre = nombre;
-        this.transito = transito;
+        this.maxTransito = maxTransito;
     }
 
-    public void setNombre(String nombre){
-        this.nombre=nombre;
-    }
-
-    public String getNombre(){
-        return this.nombre;
-    }
-    public void setTransito(int transito){
-        this.transito = transito;
-    }
-
-    public int getTransito(){
-        return this.transito;
-    }
     
+
+
+    /**
+     * @return String return the nombre
+     */
+    public String getNombre() {
+        return nombre;
+    }
+
+    /**
+     * @param nombre the nombre to set
+     */
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
+    /**
+     * @return int return the maxTransito
+     */
+    public int getMaxTransito() {
+        return maxTransito;
+    }
+
+    /**
+     * @param maxTransito the maxTransito to set
+     */
+    public void setMaxTransito(int maxTransito) {
+        this.maxTransito = maxTransito;
+    }
+
 }

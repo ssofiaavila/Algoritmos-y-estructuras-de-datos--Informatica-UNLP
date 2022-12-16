@@ -5,21 +5,20 @@ import ayed.tp06.ejercicio3.Arista;
 import ayed.tp06.ejercicio3.Grafo;
 import ayed.tp06.ejercicio3.Vertice;
 
-
-//devolver maxima cantidad de dias de estadias entre los caminos que no superen el maximo de controles permitidos
 public class Parcial9 {
 
     public int resolver(Grafo<Ciudad> ciudades, String origen, String destino, int maxControles) {
-        boolean[] marca= new boolean[ciudades.listaDeVertices().tamanio()+1];
         Max max= new Max();
-        Vertice<Ciudad> origenV= buscar(ciudades,origen, destino);
-        if (origenV!= null){
-            resolver(origenV.getPosicion(),ciudades,marca,destino,maxControles,origenV.dato().getTransito(),max);
+        boolean[]marca= new boolean[ciudades.listaDeVertices().tamanio() + 1];
+        int i=existen(ciudades,origen,destino);
+        if (i != -1){
+            System.out.println(i);
+            resolver(i,ciudades,destino,maxControles,marca,ciudades.listaDeVertices().elemento(i).dato().getMaxTransito(),max);
         }
         return max.getMax();
     }
 
-    private void resolver(int i,Grafo<Ciudad> ciudades, boolean[]marca, String destino, int maxControles, int transito, Max max) {
+    private void resolver(int i, Grafo<Ciudad> ciudades, String destino, int maxControles, boolean[]marca, int transito, Max max) {
         marca[i]=true;
         Vertice<Ciudad> v= ciudades.listaDeVertices().elemento(i);
         if (v.dato().getNombre().equals(destino)){
@@ -27,39 +26,46 @@ public class Parcial9 {
                 max.setMax(transito);
             }
         }
-        else{ 
-            ListaGenerica<Arista<Ciudad>> adyacentes= ciudades.listaDeAdyacentes(v);
-            adyacentes.comenzar();
-            while (!adyacentes.fin()){
-                Arista<Ciudad> aux=adyacentes.proximo();
-                int j= aux.verticeDestino().getPosicion();
-                if (!marca[j] && aux.peso() <= maxControles){
-                    resolver(j,ciudades,marca,destino,maxControles, transito+aux.verticeDestino().dato().getTransito(),max);
+        else{
+            ListaGenerica<Arista<Ciudad>> ady= ciudades.listaDeAdyacentes(v);
+            ady.comenzar();
+            while (!ady.fin()){
+                Arista<Ciudad> arista = ady.proximo();
+                int j= arista.verticeDestino().getPosicion();
+                if (!marca[j] && arista.peso()<=maxControles){
+                    resolver(j,ciudades,destino,maxControles,marca,transito+arista.verticeDestino().dato().getMaxTransito(),max);
                     marca[j]=false;
                 }
-            }
-        }
 
+            }
+
+
+        }
 
     }
 
-
-    private Vertice<Ciudad> buscar(Grafo<Ciudad> ciudades,String origen, String destino) {
-        Vertice<Ciudad> verticeO= null;
-        boolean encontreO=false;
-        boolean encontreD=false;
-        ListaGenerica<Vertice<Ciudad>> vertices= ciudades.listaDeVertices();
-        vertices.comenzar();
+    private int existen(Grafo<Ciudad> ciudades, String origen, String destino) {
+        ListaGenerica<Vertice<Ciudad>> vertices=ciudades.listaDeVertices();
         Vertice<Ciudad> aux=null;
-        while (!vertices.fin() && !encontreO && !encontreD){
-            aux= vertices.proximo();
-            if (aux.dato().getNombre().equals(origen))
-                encontreO=true;
-                verticeO=aux; 
-            if (aux.dato().getNombre().equals(destino))
-                encontreD=true;           
-        }    
-        return verticeO;
+        vertices.comenzar();
+        int pos=-1;
+        boolean encontre=false, origenE=false, destinoE=false;
+        while (!vertices.fin() && (encontre==false)){
+			aux=vertices.proximo();
+			if (aux.dato().getNombre().equals(origen)){
+				origenE=true;
+                pos=aux.getPosicion();
+			}
+            else{
+                if (aux.dato().getNombre().equals(destino)){
+                    destinoE=true;
+                }
+            }
+			encontre= origenE && destinoE;
+		}
+        return pos;
+
+  
     }
 
 }

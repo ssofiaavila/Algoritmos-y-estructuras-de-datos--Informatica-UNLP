@@ -1,17 +1,31 @@
 package ayed.parcialesGrafos.parcial9Grafos;
 
+import ayed.tp02.ejercicio2.ListaEnlazadaGenerica;
+import ayed.tp02.ejercicio2.ListaGenerica;
+
 public class Max {
-    private int max;
+    int max;
+    ListaGenerica<String> estadios;
 
     public Max(){
         this.max=0;
-    }
-
-    public int getMax(){
-        return this.max;
+        this.estadios= new ListaEnlazadaGenerica<String>();
     }
 
     public void setMax(int max){
-        this.max=max;
+        this.max = max;
     }
+
+    public int getMax() {
+        return max;
+    }
+
+    public void setCamino(ListaGenerica<String> estadios){
+        this.estadios=estadios;
+    }
+
+    public ListaGenerica<String> getCamino() {
+        return this.estadios;
+    }
+
 }
