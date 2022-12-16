@@ -44,6 +44,8 @@ Prácticas y material de algoritmos y esctructuras de datos, cursada 2do semestr
   
   * [Enunciados](https://github.com/ssofiaavila/Algoritmos-y-estructuras-de-datos--Informatica-UNLP/blob/main/Parciales/Enunciados%20pr%C3%A1ctico%2C%20grafos.pdf)
   * [Resoluciones](https://github.com/ssofiaavila/Algoritmos-y-estructuras-de-datos--Informatica-UNLP/tree/main/Pr%C3%A1cticas/Pr%C3%A1cticas(c%C3%B3digo)/demo/src/main/java/ayed/parcialesGrafos)
+  </details>
+* [Parcial 1ra fecha- Módulo grafos y análisis de algoritmos](https://github.com/ssofiaavila/Algoritmos-y-estructuras-de-datos--Informatica-UNLP/blob/main/Parciales/AYED%201ra%20fecha%202022-%20M%C3%B3dulo%202%20y%203.pdf)
 ----- 
 ## Material ##
 * [Teorías](https://github.com/ssofiaavila/Algoritmos-y-estructuras-de-datos--Informatica-UNLP/tree/main/Teor%C3%ADas)
