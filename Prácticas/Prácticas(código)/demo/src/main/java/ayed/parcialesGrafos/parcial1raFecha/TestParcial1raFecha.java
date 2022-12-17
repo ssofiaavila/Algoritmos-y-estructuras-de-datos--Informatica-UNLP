@@ -75,10 +75,8 @@ public class TestParcial1raFecha {
 
         Parcial1raFecha parcial= new Parcial1raFecha();
         ListaGenerica<String> listado =parcial.resolver(estadios, "Al Bayt Stadium", 100);
-        listado.comenzar();
-        while (!listado.fin()){
-            System.out.println(listado.proximo());
-        }
+        System.out.println(listado);
+        
 
         /*
          * imprime
