@@ -34,8 +34,8 @@ Prácticas y material de algoritmos y esctructuras de datos, cursada 2do semestr
   <summary> Parciales árboles </summary>
   
   * [Enunciados](https://github.com/ssofiaavila/Algoritmos-y-estructuras-de-datos--Informatica-UNLP/blob/main/Parciales/Enunciados%20m%C3%B3dulo%201-%20pr%C3%A1ctica.pdf)
-  * [Resoluciones](https://github.com/ssofiaavila/Algoritmos-y-estructuras-de-datos--Informatica-UNLP/tree/main/Pr%C3%A1cticas/Ejercicios/demo/src/main/java/ayed/parcialesArboles)
-  * [Parcial árboles 15/10 primera fecha](https://github.com/ssofiaavila/Algoritmos-y-estructuras-de-datos--Informatica-UNLP/tree/main/Pr%C3%A1cticas/Ejercicios/demo/src/main/java/ayed/parcial1Arboles)
+  * [Resoluciones](https://github.com/ssofiaavila/Algoritmos-y-estructuras-de-datos--Informatica-UNLP/tree/main/Pr%C3%A1cticas/Pr%C3%A1cticas(c%C3%B3digo)/demo/src/main/java/ayed/parcialesArboles)
+
  
  </details>
  
