@@ -45,7 +45,7 @@ public class BuscadorDeCamino {
 			encontre=true;	
 			boolean cumple=true;
 			pasandoPor.comenzar();
-			while (!pasandoPor.fin()&& cumple ){
+			while (!pasandoPor.fin() && cumple ){
 				cumple=camino.incluye(pasandoPor.proximo());
 			}
 					

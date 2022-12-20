@@ -23,8 +23,7 @@ public class gradosDeSeparacion {
 	}
 	
 	private int bfs (Grafo<String> grafo, int i, boolean[] marca) {
-		ColaGenerica<Vertice<String>> cola = new ColaGenerica<Vertice<String>>();
-		
+		ColaGenerica<Vertice<String>> cola = new ColaGenerica<Vertice<String>>();		
 		cola.encolar(grafo.listaDeVertices().elemento(i));
 		cola.encolar(null);
 		int visitas = 1;
@@ -43,8 +42,7 @@ public class gradosDeSeparacion {
 						marca[j] = true;
 						visitas++;
 					}
-				}
-				
+				}				
 			}
 			else {
 				if (!cola.esVacia()) {
